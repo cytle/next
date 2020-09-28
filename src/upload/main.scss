@@ -387,15 +387,21 @@
         }
 
         .#{$css-prefix}upload-tool {
+            $upload-select-card-tool-bg-color-rgba: false !default;
             position: absolute;
             z-index: 1;
-            background-color: rgba($upload-select-card-tool-bg-color, $upload-select-card-tool-bg-opacity);
             transition: all $motion-duration-immediately $motion-linear;
             opacity: 0;
             width: 100%;
             height: $upload-select-card-tool-height;
             left: 0;
             bottom: 0;
+
+            @if $upload-select-card-tool-bg-color-rgba {
+                background-color: $upload-select-card-tool-bg-color-rgba;
+            } @else {
+                background-color: rgba($upload-select-card-tool-bg-color, $upload-select-card-tool-bg-opacity);
+            }
 
             .#{$css-prefix}icon {
                 width: 49%;

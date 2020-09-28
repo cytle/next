@@ -251,13 +251,16 @@ $upload-card-list-progressbar-height: $s-2 !default;
 $upload-select-card-tool-height: $s-7 !default;
 // @ignore
 $upload-select-card-tool-icon-size: $icon-s !default;
+
+// ------ 1.21 废弃分开配置的 $upload-select-card-tool-bg-color ------
+$upload-select-card-tool-bg-color: $color-black !default;
+$upload-select-card-tool-bg-opacity: .7 !default;
+
 /// color
 /// @namespace statement/hover/action
-$upload-select-card-tool-bg-color: $color-black !default;
-/// opacity
-/// @type alpha
-/// @namespace statement/hover/action
-$upload-select-card-tool-bg-opacity: .7 !default;
+$upload-select-card-tool-bg-color-rgba: rgba(0, 0, 0, .7) !default;
+// ------ 1.21 废弃分开配置的 $upload-select-card-tool-bg-color ------
+
 
 // ============================================================
 

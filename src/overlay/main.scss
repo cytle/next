@@ -13,9 +13,15 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: $color-calculate-mask-background;
         transition: opacity $motion-duration-standard $motion-ease;
         opacity: 0;
+
+        $mask-background-rgba: false !default;
+        @if ($mask-background-rgba) {
+            background-color: $mask-background-rgba;
+        } @else {
+            background-color: $color-calculate-mask-background;
+        }
     }
 
     &.opened .#{$css-prefix}overlay-backdrop {

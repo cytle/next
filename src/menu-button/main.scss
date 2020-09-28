@@ -69,10 +69,20 @@
     }
 
     &[disabled].#{$css-prefix}btn-ghost.#{$css-prefix}btn-dark .#{$css-prefix}menu-btn-arrow {
-        color: $menu-btn-ghost-dark-disabled-icon-color;
+        $btn-ghost-dark-color-disabled-rgba: false !default;
+        @if ($btn-ghost-dark-color-disabled-rgba) {
+            color: $btn-ghost-dark-color-disabled-rgba;
+        } @else {
+            color: $btn-ghost-dark-color-disabled;
+        }
     }
 
     &[disabled].#{$css-prefix}btn-ghost.#{$css-prefix}btn-light .#{$css-prefix}menu-btn-arrow {
-        color: $menu-btn-ghost-light-disabled-icon-color;
+        $btn-ghost-light-color-disabled-rgba: false !default;
+        @if ($btn-ghost-light-color-disabled-rgba) {
+            color: $btn-ghost-light-color-disabled-rgba;
+        } @else {
+            color: $btn-ghost-light-color-disabled;
+        }
     }
 }

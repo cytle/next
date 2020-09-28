@@ -207,14 +207,19 @@
     bottom: 0;
 }
 
-@mixin tag-preset-color($name, $color) {
+@mixin tag-preset-color($name, $color, $color-inverse) {
     &-#{$name} {
         background-color: $color;
         border-color: $color;
         color: #FFF;
 
         &-inverse {
-            background-color: rgba($color, .25);
+            @if $color-inverse {
+                background-color: $color-inverse;
+            } @else {
+                background-color: rgba($color, .25);
+            }
+
             border-color: $color;
             color: $color;
         }

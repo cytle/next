@@ -209,11 +209,17 @@
                 color: $search-normal-dark-text-color;
             }
 
-            .#{$css-prefix}input {
-                background: $color-calculate-search-normal-dark-bg;
-            }
-            .#{$css-prefix}select {
-                background: $color-calculate-search-normal-dark-bg;
+            $color-calculate-search-normal-dark-bg-rgba: false !default;
+            @if $color-calculate-search-normal-dark-bg-rgba {
+                .#{$css-prefix}input,
+                .#{$css-prefix}select {
+                    background: $color-calculate-search-normal-dark-bg-rgba;
+                }
+            } @else {
+                .#{$css-prefix}input,
+                .#{$css-prefix}select {
+                    background: $color-calculate-search-normal-dark-bg;
+                }
             }
 
             &.#{$css-prefix}large {
@@ -295,11 +301,18 @@
             input {
                 color: $search-simple-dark-text-color;
             }
-            .#{$css-prefix}input {
-                background: $color-calculate-search-simple-dark-bg;
-            }
-            .#{$css-prefix}select {
-                background: $color-calculate-search-simple-dark-bg;
+
+            $color-calculate-search-simple-dark-bg-rgba: false !default;
+            @if $color-calculate-search-simple-dark-bg-rgba {
+                .#{$css-prefix}input,
+                .#{$css-prefix}select {
+                    background: $color-calculate-search-simple-dark-bg-rgba;
+                }
+            } @else {
+                .#{$css-prefix}input,
+                .#{$css-prefix}select {
+                    background: $color-calculate-search-simple-dark-bg;
+                }
             }
 
             #{$search-prefix}-left {

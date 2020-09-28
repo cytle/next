@@ -426,17 +426,43 @@
         box-shadow: none;
         border-style: $btn-ghost-border-style;
         &#{$btn-prefix}-dark {
-            @include button-color( $btn-ghost-dark-color, $btn-ghost-dark-color-hover, $btn-ghost-dark-color-hover, $btn-ghost-dark-bg-normal, $btn-ghost-dark-bg-hover, $btn-ghost-dark-bg-hover, $btn-ghost-dark-border-color, $btn-ghost-dark-border-color-hover, $btn-ghost-dark-border-color-hover);
-            &.disabled,
-            &[disabled] {
-                @include button-color( $btn-ghost-dark-color-disabled, $btn-ghost-dark-color-disabled, $btn-ghost-dark-color-disabled, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-border-color-disabled, $btn-ghost-dark-border-color-disabled, $btn-ghost-dark-border-color-disabled);
+            $btn-ghost-dark-bg-normal-rgba: false !default;
+            $btn-ghost-dark-bg-hover-rgba: false !default;
+            $btn-ghost-dark-color-disabled-rgba: false !default;
+            $btn-ghost-dark-border-color-disabled-rgba: false !default;
+
+            @if ($btn-ghost-dark-bg-normal-rgba) and ($btn-ghost-dark-bg-hover-rgba) and ($btn-ghost-dark-color-disabled-rgba) and ($btn-ghost-dark-border-color-disabled-rgba) {
+                @include button-color( $btn-ghost-dark-color, $btn-ghost-dark-color-hover, $btn-ghost-dark-color-hover, $btn-ghost-dark-bg-normal-rgba, $btn-ghost-dark-bg-hover-rgba, $btn-ghost-dark-bg-hover-rgba, $btn-ghost-dark-border-color, $btn-ghost-dark-border-color-hover, $btn-ghost-dark-border-color-hover);
+                &.disabled,
+                &[disabled] {
+                    @include button-color( $btn-ghost-dark-color-disabled-rgba, $btn-ghost-dark-color-disabled-rgba, $btn-ghost-dark-color-disabled-rgba, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-border-color-disabled-rgba, $btn-ghost-dark-border-color-disabled-rgba, $btn-ghost-dark-border-color-disabled-rgba);
+                }
+            } @else {
+                @include button-color( $btn-ghost-dark-color, $btn-ghost-dark-color-hover, $btn-ghost-dark-color-hover, $btn-ghost-dark-bg-normal, $btn-ghost-dark-bg-hover, $btn-ghost-dark-bg-hover, $btn-ghost-dark-border-color, $btn-ghost-dark-border-color-hover, $btn-ghost-dark-border-color-hover);
+                &.disabled,
+                &[disabled] {
+                    @include button-color( $btn-ghost-dark-color-disabled, $btn-ghost-dark-color-disabled, $btn-ghost-dark-color-disabled, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-bg-disabled, $btn-ghost-dark-border-color-disabled, $btn-ghost-dark-border-color-disabled, $btn-ghost-dark-border-color-disabled);
+                }
             }
         }
         &#{$btn-prefix}-light {
-            @include button-color( $btn-ghost-light-color, $btn-ghost-light-color-hover, $btn-ghost-light-color-hover, $btn-ghost-light-bg-normal, $btn-ghost-light-bg-hover, $btn-ghost-light-bg-hover, $btn-ghost-light-border-color, $btn-ghost-light-border-color-hover, $btn-ghost-light-border-color-hover);
-            &.disabled,
-            &[disabled] {
-                @include button-color( $btn-ghost-light-color-disabled, $btn-ghost-light-color-disabled, $btn-ghost-light-color-disabled, $btn-ghost-light-bg-disabled, $btn-ghost-light-bg-disabled, $btn-ghost-light-bg-disabled, $btn-ghost-light-border-color-disabled, $btn-ghost-light-border-color-disabled, $btn-ghost-light-border-color-disabled);
+            $btn-ghost-light-bg-normal-rgba: false !default;
+            $btn-ghost-light-bg-hover-rgba: false !default;
+            $btn-ghost-light-color-disabled-rgba: false !default;
+            $btn-ghost-light-border-color-disabled-rgba: false !default;
+
+            @if ($btn-ghost-light-bg-normal-rgba) and ($btn-ghost-light-bg-hover-rgba) and ($btn-ghost-light-color-disabled-rgba) and ($btn-ghost-light-border-color-disabled-rgba) {
+                @include button-color( $btn-ghost-light-color, $btn-ghost-light-color-hover, $btn-ghost-light-color-hover, $btn-ghost-light-bg-normal-rgba, $btn-ghost-light-bg-hover-rgba, $btn-ghost-light-bg-hover-rgba, $btn-ghost-light-border-color, $btn-ghost-light-border-color-hover, $btn-ghost-light-border-color-hover);
+                &.disabled,
+                &[disabled] {
+                    @include button-color( $btn-ghost-light-color-disabled-rgba, $btn-ghost-light-color-disabled-rgba, $btn-ghost-light-color-disabled-rgba, $btn-ghost-light-bg-disabled, $btn-ghost-light-bg-disabled, $btn-ghost-light-bg-disabled, $btn-ghost-light-border-color-disabled-rgba, $btn-ghost-light-border-color-disabled-rgba, $btn-ghost-light-border-color-disabled-rgba);
+                }
+            } @else {
+                @include button-color( $btn-ghost-light-color, $btn-ghost-light-color-hover, $btn-ghost-light-color-hover, $btn-ghost-light-bg-normal, $btn-ghost-light-bg-hover, $btn-ghost-light-bg-hover, $btn-ghost-light-border-color, $btn-ghost-light-border-color-hover, $btn-ghost-light-border-color-hover);
+                &.disabled,
+                &[disabled] {
+                    @include button-color( $btn-ghost-light-color-disabled, $btn-ghost-light-color-disabled, $btn-ghost-light-color-disabled, $btn-ghost-light-bg-disabled, $btn-ghost-light-bg-disabled, $btn-ghost-light-bg-disabled, $btn-ghost-light-border-color-disabled, $btn-ghost-light-border-color-disabled, $btn-ghost-light-border-color-disabled);
+                }
             }
         }
     }

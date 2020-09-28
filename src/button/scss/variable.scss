@@ -284,53 +284,52 @@ $btn-ghost-dark-border-color: $color-white !default;
 /// @namespace statement/hover
 $btn-ghost-dark-color-hover: $color-white !default;
 
-/// background
-/// @namespace statement/normal
+// ------ 1.21 废弃分开配置的 $btn-ghost-dark-bg-normal ------
 $btn-ghost-dark-bg: $color-transparent !default;
-
-/// bg opacity
-/// @namespace statement/normal
-/// @type alpha
 $btn-ghost-dark-bg-opacity: 0 !default;
 $btn-ghost-dark-bg-normal: rgba($btn-ghost-dark-bg, $btn-ghost-dark-bg-opacity);
 
 /// background
-/// @namespace statement/hover
-$btn-ghost-dark-bg-hover-rgb: $color-white !default;
+/// @namespace statement/normal
+$btn-ghost-dark-bg-normal-rgba: rgba(0, 0, 0, 0) !default;
+// ------ 1.21 废弃分开配置的 $btn-ghost-dark-bg-normal ------
 
-/// bg opacity
-/// @namespace statement/hover
-/// @type alpha
+// ------ 1.21 废弃分开配置的 $btn-ghost-dark-bg-hover ------
+$btn-ghost-dark-bg-hover-rgb: $color-white !default;
 $btn-ghost-dark-bg-hover-opacity: .8 !default;
 $btn-ghost-dark-bg-hover: rgba($btn-ghost-dark-bg-hover-rgb, $btn-ghost-dark-bg-hover-opacity);
+
+/// background
+/// @namespace statement/hover
+$btn-ghost-dark-bg-hover-rgba: rgba(255, 255, 255, .8) !default;
+// ------ 1.21 废弃分开配置的 $btn-ghost-dark-bg-hover ------
 
 /// border
 /// @namespace statement/hover
 $btn-ghost-dark-border-color-hover: $color-white !default;
 
-/// color
-/// @namespace statement/disabled
+// ------ 1.21 废弃分开配置的 $btn-ghost-dark-color-disabled ------
 $btn-ghost-dark-color-disabled-rgb: $color-white !default;
-
-/// color opacity
-/// @namespace statement/disabled
-/// @type alpha
 $btn-ghost-dark-color-disabled-opacity: .4 !default;
 $btn-ghost-dark-color-disabled: rgba($btn-ghost-dark-color-disabled-rgb, $btn-ghost-dark-color-disabled-opacity);
+/// color
+/// @namespace statement/disabled
+$btn-ghost-dark-color-disabled-rgba: rgba(255, 255, 255, .4) !default;
+// ------ 1.21 废弃分开配置的 $btn-ghost-dark-color-disabled ------
 
 /// background
 /// @namespace statement/disabled
 $btn-ghost-dark-bg-disabled: $color-transparent !default;
 
-/// border
-/// @namespace statement/disabled
+// ------ 1.21 废弃分开配置的 $btn-ghost-dark-border-color-disabled ------
 $btn-ghost-dark-border-color-disabled-rgb: $color-white !default;
-
-/// border opacity
-/// @namespace statement/disabled
-/// @type alpha
 $btn-ghost-dark-border-color-disabled-opacity: .4 !default;
 $btn-ghost-dark-border-color-disabled: rgba($btn-ghost-dark-border-color-disabled-rgb, $btn-ghost-dark-border-color-disabled-opacity);
+
+/// border
+/// @namespace statement/disabled
+$btn-ghost-dark-border-color-disabled-rgba: rgba(255, 255, 255, .4) !default;
+// ------ 1.21 废弃分开配置的 $btn-ghost-dark-border-color-disabled ------
 
 // Ghost Light
 // ----------------------------------------
@@ -343,15 +342,14 @@ $btn-ghost-light-color: $color-text1-4 !default;
 /// @namespace statement/normal
 $btn-ghost-light-border-color: $color-text1-4 !default;
 
-/// background
-/// @namespace statement/normal
+// ------ 1.21 废弃分开配置的 $btn-ghost-light-bg-normal ------
 $btn-ghost-light-bg: $color-transparent !default;
-
-/// bg opacity
-/// @namespace statement/normal
-/// @type alpha
 $btn-ghost-light-bg-opacity: 0 !default;
 $btn-ghost-light-bg-normal: rgba($btn-ghost-light-bg, $btn-ghost-light-bg-opacity);
+/// background
+/// @namespace statement/normal
+$btn-ghost-light-bg-normal-rgba: rgba(0, 0, 0, 0) !default;
+// ------ 1.21 废弃分开配置的 $btn-ghost-light-bg-normal ------
 
 /// text
 /// @namespace statement/hover
@@ -361,39 +359,39 @@ $btn-ghost-light-color-hover: $color-text1-2 !default;
 /// @namespace statement/hover
 $btn-ghost-light-border-color-hover: $color-text1-4 !default;
 
-/// background
-/// @namespace statement/hover
+// ------ 1.21 废弃分开配置的 $btn-ghost-light-bg-hover ------
 $btn-ghost-light-bg-hover-rgb: $color-black !default;
-
-/// bg opacity
-/// @namespace statement/hover
-/// @type alpha
 $btn-ghost-light-bg-hover-opacity: .92 !default;
 $btn-ghost-light-bg-hover: rgba($btn-ghost-light-bg-hover-rgb, $btn-ghost-light-bg-hover-opacity);
 
-/// text
-/// @namespace statement/disabled
-$btn-ghost-light-color-disabled-rgb: $color-black !default;
+/// background
+/// @namespace statement/hover
+$btn-ghost-light-bg-hover-rgba: rgba(0, 0, 0, .92) !default;
+// ------ 1.21 废弃分开配置的 $btn-ghost-light-bg-hover ------
 
-/// text opacity
-/// @namespace statement/disabled
-/// @type alpha
+// ------ 1.21 废弃分开配置的 $btn-ghost-light-color-disabled ------
+$btn-ghost-light-color-disabled-rgb: $color-black !default;
 $btn-ghost-light-color-disabled-opacity: .1 !default;
 $btn-ghost-light-color-disabled: rgba($btn-ghost-light-color-disabled-rgb, $btn-ghost-light-color-disabled-opacity);
+
+/// text
+/// @namespace statement/disabled
+$btn-ghost-light-color-disabled-rgba: rgba(0, 0, 0, .1) !default;
+// ------ 1.21 废弃分开配置的 $btn-ghost-light-color-disabled ------
 
 /// background
 /// @namespace statement/disabled
 $btn-ghost-light-bg-disabled: $color-transparent !default;
 
-/// border
-/// @namespace statement/disabled
+// ------ 1.21 废弃分开配置的 $btn-ghost-light-border-color-disabled ------
 $btn-ghost-light-border-color-disabled-rgb: $color-black !default;
-
-/// border opacity
-/// @namespace statement/disabled
-/// @type alpha
 $btn-ghost-light-border-color-disabled-opacity: .1 !default;
 $btn-ghost-light-border-color-disabled: rgba($btn-ghost-light-border-color-disabled-rgb, $btn-ghost-light-border-color-disabled-opacity);
+
+/// border
+/// @namespace statement/disabled
+$btn-ghost-light-border-color-disabled-rgba: rgba(0, 0, 0, .1) !default;
+// ------ 1.21 废弃分开配置的 $btn-ghost-light-border-color-disabled ------
 
 // Warning Primary
 // ----------------------------------------
