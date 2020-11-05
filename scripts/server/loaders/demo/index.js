@@ -46,8 +46,50 @@ module.exports = function(content) {
     );
 
     const result = parseMD(content, resourcePath, lang, dir);
-    return processJS(result.js, result.css, result.meta.desc, result.body, resourcePath, this.context, dir, options);
+
+    const code = `() => {
+        return (<div>
+            <h4>Without Label</h4>
+            <Radio defaultChecked />&nbsp;
+            <Radio checked />&nbsp;
+            <Radio disabled />&nbsp;
+            <Radio checked disabled />&nbsp;
+            <Radio />
+            <h4>With Label</h4>
+            <Radio id="apple">Apple</Radio>&nbsp;
+            <Radio id="banana" /><label htmlFor="banana" className="next-radio-label">Banana</label>&nbsp;
+            <Radio id="apple2" label="Apple" className="testClassname" />
+        </div>);
+    }`;
+
+    return processJS(
+        wrapWithReactLive(code),
+        result.css,
+        result.meta.desc,
+        result.body,
+        resourcePath,
+        this.context,
+        dir,
+        options
+    );
 };
+
+function wrapWithReactLive(code) {
+    return `import {
+        LiveProvider,
+        LiveEditor,
+        LiveError,
+        LivePreview
+      } from 'react-live'
+      import { Radio } from '@alifd/next';
+    const scope = {Radio}
+
+    ReactDOM.render(<LiveProvider code={\`${code}\`} scope={scope}>
+      <LiveEditor style={{backgroundColor: '#333', caretColor: '#FFF'}} />
+      <LiveError />
+      <LivePreview />
+    </LiveProvider>, mountNode)`;
+}
 
 // eslint-disable-next-line max-params
 function processJS(js, css, desc, body, resourcePath, context, dir, options) {
