@@ -13,6 +13,7 @@ const IMPORT_LIB_REG_G = /^import .+ from ['"]@alifd\/next\/lib\/(.+)['"];?/gm;
 const tplsPath = path.resolve(__dirname, '../../tpls');
 const headerTplPath = path.resolve(tplsPath, 'partials/header.ejs');
 const demoTplPath = path.resolve(tplsPath, 'demo.ejs');
+const { transform } = require('@babel/core'); // TODO：工程中用的是babel6 这里引入的是babel7 需要保持一致
 
 module.exports = function(content) {
     const options = loaderUtils.getOptions(this);
@@ -47,23 +48,32 @@ module.exports = function(content) {
 
     const result = parseMD(content, resourcePath, lang, dir);
 
-    const code = `() => {
-        return (<div>
-            <h4>Without Label</h4>
-            <Radio defaultChecked />&nbsp;
-            <Radio checked />&nbsp;
-            <Radio disabled />&nbsp;
-            <Radio checked disabled />&nbsp;
-            <Radio />
-            <h4>With Label</h4>
-            <Radio id="apple">Apple</Radio>&nbsp;
-            <Radio id="banana" /><label htmlFor="banana" className="next-radio-label">Banana</label>&nbsp;
-            <Radio id="apple2" label="Apple" className="testClassname" />
-        </div>);
+    const code = `
+        class TransformExample extends React.Component {
+
+        boop = () => {
+            console.log('boop')
+        }
+
+        render() {
+            return (
+            <center>
+                <button onClick={this.boop}><h3>Boop!</h3></button>
+            </center>
+            )
+        }
     }`;
 
     return processJS(
-        wrapWithReactLive(code),
+        wrapWithReactLive(
+            // 在react-live之外进行babel转换
+            transform(code, {
+                plugins: [
+                    require('@babel/plugin-syntax-jsx'),
+                    [require('@babel/plugin-proposal-class-properties'), { loose: true }],
+                ],
+            }).code
+        ),
         result.css,
         result.meta.desc,
         result.body,
@@ -81,10 +91,15 @@ function wrapWithReactLive(code) {
         LiveError,
         LivePreview
       } from 'react-live'
-      import { Radio } from '@alifd/next';
+    import { Radio } from '@alifd/next';
     const scope = {Radio}
 
-    ReactDOM.render(<LiveProvider code={\`${code}\`} scope={scope}>
+
+    ReactDOM.render(
+        <LiveProvider
+        code={\`${code}\`}
+        scope={scope}
+    >
       <LiveEditor style={{backgroundColor: '#333', caretColor: '#FFF'}} />
       <LiveError />
       <LivePreview />
